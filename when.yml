@@ -1,0 +1,21 @@
+---
+- name: validate service
+  hosts: prueba
+
+  tasks:
+  - name: check if service is running
+    shell: "systemctl is-active rpcbind"
+    register: service_running
+  - name: stop service if it is running
+    service: 
+      name: rpcbind
+      state: stopped
+    when: service_running is defined
+  - name: check if service is enabled
+    shell: "systemctl is-enabled rpcbind"
+    register: service_enable
+  - name: disable service if it is enabled
+    service: 
+      name: rpcbind
+      enabled: false
+  

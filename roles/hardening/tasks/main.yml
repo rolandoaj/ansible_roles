@@ -1,0 +1,8 @@
+---
+# tasks file for hardening
+- name: check if service is running
+  shell: 'systemctl is-active {{ item }}'
+  register: service_running
+  with_items: '{{ unnecessary_services }}'
+  
+

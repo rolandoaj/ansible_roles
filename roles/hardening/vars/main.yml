@@ -1,0 +1,45 @@
+---
+# vars file for hardening
+unnecessary_services:
+#mail server
+- postfix
+#samba
+- smb
+#ftp
+- vsftpd
+#email transfer
+- sendemail
+#hp printer driver
+- hplip
+#auto mount external fs cifs/smb, nfs
+- autofs
+#job scheduler daemon 
+- atd
+#ip tables to ip v6
+- ip6tables
+#service must not be running, unless using RHN or an RHN Satellite
+- rhnsd
+#network file system
+- nfs
+#service to nfsv2 and v3 client
+- nfslock
+#service for nfsv4 client
+- rpcgssd
+#name mapping daemon to nfs v4 client
+- rpcidmapd
+# services to the ports on which they listen, used with nfs
+- rpcbind
+# contexts for the NFSv4 client
+- rpcsvcgssd
+#the process checks with the Red Hat Entitlement System to see if any new subscriptions are available to the system and pulls down any new certificates
+- rhsmcertd
+#remote login
+- rlogin
+#red hat storage like a NAS
+- rhs
+#remote execution
+- rexec
+#ldap
+- slapd
+
+

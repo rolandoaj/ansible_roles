@@ -1,0 +1,10 @@
+---
+- name: create new admin users
+  hosts: prueba
+
+  pre_tasks:
+    - debug:
+        msg: 'Beginning role'
+
+  roles:
+    - users 
